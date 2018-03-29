@@ -10,4 +10,4 @@ SPM Project
 2. Edit '.env.default' to your credentials and specify the port (default port is 3000).
 3. Rename .env.default to .env
 4. Run the SQL script file to set up Database
-5. On the command line, type 'debug=evaluate:* npm start' to start server at the specified port
+5. On the command line, type 'npm start' (optionally, 'debug=evaluate:* npm start' for debugging) to start server at the specified port
