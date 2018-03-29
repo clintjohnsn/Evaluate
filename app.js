@@ -9,9 +9,10 @@ var bodyParser = require('body-parser');
 //load secrets from .env
 require('dotenv').config();
 
-//load route mdules
-var index = require('./routes/index');
+//load route modules
+var homepage = require('./routes/homepage');
 var users = require('./routes/users');
+var products = require('./routes/products');
 
 var app = express();
 // view engine setup
@@ -30,8 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //use routes
-app.use('/', index);
+app.use('/', homepage);
 app.use('/users', users);
+app.use('/product',products);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

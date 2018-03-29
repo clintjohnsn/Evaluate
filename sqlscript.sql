@@ -362,3 +362,4 @@ VIEW `spm`.`view_active_auctions` AS
             AND (`p`.`cat_id` = `c`.`cat_id`)
             AND (`p`.`seller_id` = `s`.`seller_id`))
             
+insert into product values(null, 'Couch','10Kg','real comfy couch',null,10,101,2);
