@@ -68,18 +68,38 @@
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<img src="/images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2>The Tracker Dress</h2>
-								<p>Web ID: 1089772</p>
+								<h2><%= prod_name %></h2>
+								<p>Web ID: <%= prod_id %></p>
 								<img src="/images/product-details/rating.png" alt="" />
 								<span>
-									<span>In Auction</span>
+                                    <% if (isOnAuction) {%>
+                                        <span>In Auction</span>
+                                    <% }else { %>
+                                        <span>Not currently in auction</span>
+                                    <% } %>
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Bid On This!
 									</button>
 								</span>
-								<p><b>Auction</b> On Going</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
+                                <% if(typeof seller_name !== 'undefined'){ %>
+								   <p><b>Brand:</b> <%= seller_name %></p>
+                                <% } %>
+                                <% if(typeof description !== 'undefined'){ %>
+                                    <p><b>Description:</b><%= description %></p>
+                                <% } %>
+                                <% if(typeof weight !== 'undefined'){ %>
+                                    <p><b>Weight:</b><%= weight %></p>
+                                <% } %>
+                                <% if(typeof no_of_bids !== 'undefined'){ %>
+                                <p><b>Bids placed:</b><%= no_of_bids %></p>
+                                <% } %>
+                                <% if(typeof no_of_bids !== 'undefined'){ %>
+                                    <p><b>Auction ends:</b><%= end_time %></p>
+                                <% } %>
+                                <% if(typeof no_of_bids !== 'undefined'){ %>
+                                    <p><b>Stock:</b><%= stock %></p>
+                                <% } %>
 							</div><!--/product-information-->
 						</div>
 					</div>
