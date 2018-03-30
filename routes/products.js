@@ -14,16 +14,16 @@ router.get('/pid/:pid',function (req,res) {
         if (result[0]){
             result[0].isOnAuction = true;
             result[0].prodExist = true;
-            res.send(result[0]);
+            res.render('product_details',result[0]);
         }else{
             sqlquery2 = 'select prod_id, prod_name, weight, description, stock from product where prod_id = ?';
             db.query(sqlquery2,[req.params.pid],function (err,result1,fields) {
                 if (result1[0]){
                     result1[0].isOnAuction = false;
                     result1[0].prodExist = true;
-                    res.send(result1[0]);
+                    res.render('product_details',result1[0]);
                 }else{
-                    res.send({isOnAuction:false, prodExist:false});
+                    res.render('product_details',{isOnAuction:false, prodExist:false});
                 }
             });
         }
