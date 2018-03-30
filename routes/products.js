@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database.js');
 
+/* SERVE THE PRODUCT PAGE*/
+router.get('/',function (req,res) {
+    res.render('product_details');
+});
+
 /* GET: GET DETAILS OF A PRODUCT BY PRODUCT ID*/
 router.get('/pid/:pid',function (req,res) {
     var sqlquery = 'select * from view_active_auctions where prod_id = ?';

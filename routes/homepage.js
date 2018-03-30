@@ -5,7 +5,7 @@ var db = require('../database.js');
 var ITEMS_ON_PAGE = 10; //maximum no of items on a page
 
 /* GET : HOME PAGE */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
