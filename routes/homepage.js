@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database.js');
 
-var ITEMS_ON_PAGE = 10; //maximum no of items on a page
+var ITEMS_ON_PAGE = 6; //maximum no of items on a page
 
 /* GET : HOME PAGE */
 router.get('/', function(req, res) {
