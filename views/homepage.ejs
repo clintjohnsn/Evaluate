@@ -70,13 +70,18 @@
 						</div> -->
 					</div>
 							<ul class="nav navbar-nav">
+                                <% if (user) { %>
+                                <li><a href="#"><i class="fa fa-crosshairs"></i>Hi <%= user.user_name %></a></li>
+                                <% } %>
 								<li><a href="/"><i class="fa fa-crosshairs"></i>Home</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>Account</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Login</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i>Contact</a></li>
+								<li><a href="/users/settings"><i class="fa fa-crosshairs"></i>Settings</a></li>
+								<li><a href="/dashboard"><i class="fa fa-shopping-cart"></i>Dashboard</a></li>
+                                <% if(user) { %>
+                                    <li><a href="/auth/logout"><i class="fa fa-lock"></i>Logout</a></li>
+                                <% }else{ %>
+                                    <li><a href="/auth/login"><i class="fa fa-lock"></i>Login</a></li>
+                                <% } %>
 							</ul>
-
-
 						</div>
 
 					</div>
@@ -299,12 +304,13 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 
-    <script src="js/jquery.js"></script>
+    <!-- <script src="js/jquery.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> -->
+    
     <script src = "/javascripts/homepagemain.js"></script>
 </body>
 </html>

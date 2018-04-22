@@ -1,10 +1,10 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 //load secrets from .env
 require('dotenv').config();
@@ -13,27 +13,53 @@ require('dotenv').config();
 var homepage = require('./routes/homepage');
 var users = require('./routes/users');
 var products = require('./routes/products');
+var authRoutes = require('./routes/auth-routes');
+var dashboard = require('./routes/dashboard');
 
+//configure passport
+var passportSetup = require('./config/passport-config')
+
+//initialize app
 var app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//bunch of middlewares here
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//middlewares
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+// set up session cookies
+app.use(cookieSession({
+    // age = 1 day
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKIE_KEY]
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//authentication check
+const authCheck = function(req, res, next){
+    if(!req.user){
+        res.redirect('/auth/login');
+    } else {
+        next();
+    }
+};
 
 //use routes
 app.use('/', homepage);
 app.use('/users', users);
 app.use('/products',products);
+app.use('/auth',authRoutes);
+app.use('/dashboard', dashboard);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

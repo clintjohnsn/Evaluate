@@ -1,7 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'start' ]
 2 info using npm@3.10.10
-3 info using node@v6.13.1
+3 info using node@v6.14.1
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle evaluate@0.0.0~prestart: evaluate@0.0.0
 6 silly lifecycle evaluate@0.0.0~prestart: no script for prestart, continuing
@@ -24,9 +24,9 @@
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid evaluate@0.0.0
 16 verbose cwd /home/clint/evaluate
-17 error Linux 4.13.0-37-generic
+17 error Linux 4.13.0-38-generic
 18 error argv "/usr/bin/node" "/usr/bin/npm" "start"
-19 error node v6.13.1
+19 error node v6.14.1
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error evaluate@0.0.0 start: `node ./bin/www`

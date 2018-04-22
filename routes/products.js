@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var db = require('../database.js');
+const express = require('express');
+const router = express.Router();
+const db = require('../config/database.js');
 
 /* SERVE THE PRODUCT PAGE*/
 router.get('/',function (req,res) {
@@ -14,6 +14,7 @@ router.get('/pid/:pid',function (req,res) {
         if (result[0]){
             result[0].isOnAuction = true;
             result[0].prodExist = true;
+            result[0].user = req.user;
             res.render('product_details',result[0]);
         }else{
             sqlquery2 = 'select prod_id, prod_name, weight, description, stock from product where prod_id = ?';
@@ -21,9 +22,10 @@ router.get('/pid/:pid',function (req,res) {
                 if (result1[0]){
                     result1[0].isOnAuction = false;
                     result1[0].prodExist = true;
+                    result1[0].user = req.user;
                     res.render('product_details',result1[0]);
                 }else{
-                    res.render('product_details',{isOnAuction:false, prodExist:false});
+                    res.render('product_details',{isOnAuction:false, prodExist:false, user:req.user});
                 }
             });
         }

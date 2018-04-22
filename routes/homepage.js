@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var db = require('../database.js');
+const express = require('express');
+const router = express.Router();
+const db = require('../config/database.js');
 
 var ITEMS_ON_PAGE = 6; //maximum no of items on a page
 
 /* GET : HOME PAGE */
 router.get('/', function(req, res) {
-  res.render('homepage');
+    res.render('homepage',{user:req.user});
 });
 
 /* GET : BROWSE ACTIVE AUCTIONS BY PAGE*/
