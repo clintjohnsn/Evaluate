@@ -331,7 +331,7 @@ where aa.prod_id=p.prod_id and p.cat_id = c.cat_id and p.seller_id=s.seller_id;
 
 CREATE 
     ALGORITHM = UNDEFINED 
-    DEFINER = `root`@`localhost` 
+    DEFINER = `spmevaluateadmin`@`spm-evaluate-db-2.c19hzyaelurm.ap-south-1.rds.amazonaws.com` 
     SQL SECURITY DEFINER
 VIEW `spm`.`view_active_auctions` AS
     SELECT 
@@ -360,6 +360,6 @@ VIEW `spm`.`view_active_auctions` AS
     WHERE
         ((`aa`.`prod_id` = `p`.`prod_id`)
             AND (`p`.`cat_id` = `c`.`cat_id`)
-            AND (`p`.`seller_id` = `s`.`seller_id`))
+            AND (`p`.`seller_id` = `s`.`seller_id`));
             
 insert into product values(null, 'Couch','10Kg','real comfy couch',null,10,101,2);

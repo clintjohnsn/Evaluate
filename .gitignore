@@ -3,3 +3,7 @@
 
 # secrets
 .env
+
+#other stupid shit
+./test/notes
+
