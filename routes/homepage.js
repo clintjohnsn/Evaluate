@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database.js');
 
-var ITEMS_ON_PAGE = 6; //maximum no of items on a page
+var ITEMS_ON_PAGE = 3; //maximum no of items on a page
 
 /* GET : HOME PAGE */
 router.get('/', function(req, res) {
@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 router.get('/browse/p/:page', function(req, res) {
     if (req.params.page < 1) req.params.page = 1;
     var offset = (req.params.page-1) * ITEMS_ON_PAGE;
-    var sqlquery = 'select active_auctions_id,end_time,prod_id,cat_id,seller_id,prod_name,seller_name,no_of_bids from view_active_auctions order by end_time limit ? offset ?';
+    var sqlquery = 'select active_auctions_id,end_time,prod_id,cat_id,seller_id,prod_name,seller_name,no_of_bids,image from view_active_auctions order by end_time limit ? offset ?';
     db.query(sqlquery,[ITEMS_ON_PAGE,offset], function(err, result, fields) {
         if (err) throw err;
         res.send(result);
