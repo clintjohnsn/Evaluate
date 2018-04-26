@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "startdev": "nodemon ./bin/www",
     "test": "mocha"
   },
@@ -20,5 +20,8 @@
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
