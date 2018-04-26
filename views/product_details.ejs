@@ -9,6 +9,8 @@
     <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
 	<link href="/stylesheets/main.css" rel="stylesheet">
 	<link href="/stylesheets/responsive.css" rel="stylesheet">
+    <link href="/stylesheets/productpagemodal.css" rel="stylesheet">
+
 </head>
 <body>
 	<header id="header"><!--header-->
@@ -69,26 +71,46 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="https://source.unsplash.com/collection/202/the-startup-collection/" alt="" />
+								<img src=<%= image %> alt="" />
 
 							</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
-								<img src="/images/product-details/new.jpg" class="newarrival" alt="" />
+
 								<h2><%= prod_name %></h2>
-								<p>Web ID: <%= prod_id %></p>
-								<img src="/images/product-details/rating.png" alt="" />
+                                <p>Auction id: <span id = "auctionid"> <%= active_auctions_id %></span> </p>
+
 								<span>
                                     <% if (isOnAuction) {%>
                                         <span>In Auction</span>
                                     <% }else { %>
                                         <span>Not currently in auction</span>
                                     <% } %>
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Bid On This!
-									</button>
+									<button type="button" class="btn btn-fefault cart" id="bidbtn">
+										Bid On This!	</button>
+                                        <!-- The Modal -->
+                                            <div id="myModal" class="modal">
+
+                                                <!-- Modal content -->
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+
+                                                      <h2>Place your bid</h2>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <p>Please note that in the case of winning the auction, you must pay the second highest bid that was placed. Your bid is entirely anonymous. Minimum bid is INR 99. You can bid multiple times but only the highest bid placed will be considered. </p>
+                                                      <input type="text"  id="enteredbid" size="305"/>
+                                                      <button type="button" class="btn btn-fefault cart" id="placebidbtn"> Place bid</button>
+                                                      <p id="warning"> Bid amount is lower than minimum </p>
+                                                      <p id="confirmation">Your Bid has been placed</p>
+
+                                                    </div>
+
+                                                  </div>
+
+                                            </div>
+
 								</span>
                                 <% if(typeof seller_name !== 'undefined'){ %>
 								   <p><b>Brand:</b> <%= seller_name %></p>
@@ -200,6 +222,10 @@
 		</div>
 	</section>
 	</header>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src = "/javascripts/productpagemain.js"></script>
 </body>
 
 </html>

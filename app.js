@@ -45,15 +45,6 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//authentication check
-const authCheck = function(req, res, next){
-    if(!req.user){
-        res.redirect('/auth/login');
-    } else {
-        next();
-    }
-};
-
 //use routes
 app.use('/', homepage);
 app.use('/users', users);

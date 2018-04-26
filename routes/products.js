@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database.js');
+const MINIMUM_AMOUNT =  99;
 
-/* SERVE THE PRODUCT PAGE*/
-router.get('/',function (req,res) {
-    res.render('product_details');
-});
+//authentication check
+const authCheck = function(req, res, next){
+    if(!req.user){
+        res.send('user not logged in');
+    } else if (req.user.banned == 1) {
+        res.send('banned user');
+    }else{
+        next();
+    }
+};
+
 
 /* GET: GET DETAILS OF A PRODUCT BY PRODUCT ID*/
 router.get('/pid/:pid',function (req,res) {
@@ -32,5 +40,18 @@ router.get('/pid/:pid',function (req,res) {
     });
 });
 
+router.post('/bid',authCheck,function (req,res) {
+    var userid = parseInt(req.user.user_id);
+    var bid_amt = parseInt(req.body.bid);
+    var active_auctions_id = parseInt(req.body.auctionid);
+    var sqlquery = "insert into bid values(null, ?,?,?,null)";
+    if (bid_amt < MINIMUM_AMOUNT){
+        res.send('bid amount is less than Minimum');
+    }else{
+        db.query(sqlquery,[bid_amt, userid, active_auctions_id],function(err,result,fields){
+            res.json(result);
+        });
+    }
+});
 
 module.exports = router;

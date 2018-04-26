@@ -16,7 +16,7 @@ router.get('/browse/p/:page', function(req, res) {
     var offset = (req.params.page-1) * ITEMS_ON_PAGE;
     var sqlquery = 'select active_auctions_id,end_time,prod_id,cat_id,seller_id,prod_name,seller_name,no_of_bids,image from view_active_auctions order by end_time limit ? offset ?';
     db.query(sqlquery,[ITEMS_ON_PAGE,offset], function(err, result, fields) {
-        if (err) throw err;
+        // if (err) throw err;
         res.send(result);
     });
 });
@@ -28,7 +28,7 @@ router.get('/browsebycategory/cid/:cat_id/p/:page', function(req, res) {
     var sqlquery = `select * from view_active_auctions where cat_id = ? order by end_time
                     limit ? offset ?`;
     db.query(sqlquery,[req.params.cat_id, ITEMS_ON_PAGE, offset], function(err, result, fields) {
-        if (err) throw err;
+        // if (err) throw err;
         res.send(result);
     });
 });
@@ -37,7 +37,7 @@ router.get('/browsebycategory/cid/:cat_id/p/:page', function(req, res) {
 router.get('/getcategories',function(req,res) {
     var sqlquery = 'select * from category';
     db.query(sqlquery,function (err,result,fields) {
-        if (err) throw err;
+        // if (err) throw err;
         res.send(result);
     });
 });
