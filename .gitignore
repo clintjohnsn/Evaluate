@@ -9,6 +9,7 @@
 ./cicd.sh
 ./ubuntu@ec2-13-127-252-104.ap-south-1.compute.amazonaws.com
 .Rhistory
+./wat
 
 #packages
-./packages.json
+#./packages.json
