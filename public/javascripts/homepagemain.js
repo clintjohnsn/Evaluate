@@ -72,15 +72,15 @@ $(function() {
         makeBrowseReq();
     });
 
+
     function renderCards(response) {
         $('#featured_items').html("");
-        var collectionid = 202;
         for (var i = 0; i < response.length; i++) {
             var card = `<div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="https://source.unsplash.com/collection/${collectionid}/the-startup-collection/" alt="" />
+                                    <img src=${response[i].image} alt="" />
                                     <h2 id = ${response[i].active_auctions_id} >${response[i].prod_name}</h2>
                                     <p> Bid Now! </p>
                                 </div>
@@ -97,7 +97,6 @@ $(function() {
                         </div>
                     </div>`;
             $('#featured_items').append(card);
-            collectionid = collectionid + 1;
         }
     }
 
