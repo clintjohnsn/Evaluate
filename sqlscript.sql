@@ -23,7 +23,7 @@ CREATE TABLE `product` (
   `prod_name` VARCHAR(255) NOT NULL,
   `weight` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
-  `image` BLOB,
+  `image` STRING,
   `stock` INTEGER NOT NULL,
   
 	cat_id integer not null,
