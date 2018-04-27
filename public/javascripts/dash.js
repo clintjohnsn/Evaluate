@@ -104,7 +104,7 @@ $(function(){
                 <td class="cart_Validity">
                     <p>${time}</p>
 
-                <td class="price">My Bid
+                <td class="price">
                     <a href=""><button type="submit" class="btn btn-default">Pay</button>
                 </td>
             </tr>`;
