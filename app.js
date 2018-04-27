@@ -15,7 +15,7 @@ var users = require('./routes/users');
 var products = require('./routes/products');
 var authRoutes = require('./routes/auth-routes');
 var dashboard = require('./routes/dashboard');
-// var payment  = require('./routes/payment');
+var payment  = require('./routes/payment');
 //configure passport
 var passportSetup = require('./config/passport-config')
 
@@ -51,7 +51,7 @@ app.use('/users', users);
 app.use('/products',products);
 app.use('/auth',authRoutes);
 app.use('/dashboard', dashboard);
-// app.use('/payment', payment);
+app.use('/payment', payment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
