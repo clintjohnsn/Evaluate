@@ -45,7 +45,7 @@ router.post('/bid',authCheck,function (req,res) {
     var userid = parseInt(req.user.user_id);
     var bid_amt = parseInt(req.body.bid);
     var active_auctions_id = parseInt(req.body.auctionid);
-    var sqlquery = "insert into bid values(null, ?,?,?,null)";
+    var sqlquery = "insert into bid values(null, ?,?,?)";
     if (bid_amt < MINIMUM_AMOUNT){
         //check if amount less than the Minimum
         res.send('bid amount is less than Minimum');
