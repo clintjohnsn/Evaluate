@@ -52,7 +52,10 @@ router.post('/register', function(req, res, next) {
                 });
             });
         }
+    }else{
+        res.send('error');
     }
+
 });
 
 router.post('/login', passport.authenticate('local', {
