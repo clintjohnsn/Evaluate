@@ -48,7 +48,7 @@ if [ "$CHECK" = "up-to-date" ]; then
         echo "Server had Stopped"
         echo "Now restarting the server"
         echo "******" >> ~/cicd.log
-        echo "Server Crashed, no new pulls" >> ~/cicd.log
+        echo "Restarting crashed server, no new pulls" >> ~/cicd.log
         date >> ~/cicd.log
         npm start
     fi
