@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Settings| E-valuate</title>
-    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
-    <link href="/stylesheets/price-range.css" rel="stylesheet">
-    <link href="/stylesheets/animate.css" rel="stylesheet">
-	<link href="/stylesheets/main.css" rel="stylesheet">
-	<link href="/stylesheets/responsive.css" rel="stylesheet">
-
-</head><!--/head-->
+    <title>Settings | E-valuuate</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <link href="form-validation.css" rel="stylesheet">
+  </head><!--/head-->
 
 <body>
 	<header id="header"><!--header-->
@@ -42,67 +43,122 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="/images/home/logo.png" alt="" width="240" height="60" /></a>
+							<a href="index.html"><img src="images/home/logo.png" alt="" width="200" height="150" /></a>
 						</div>
 
 					</div>
 					<!--hi "buyer name" comes here-->
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <div class="col-sm-3">
-                        <!-- <div class="search_box pull-right">
-                            <input type="text" placeholder="Search"/>
-                        </div> -->
-                    </div>
-                            <ul class="nav navbar-nav">
-                                <% if (user) { %>
-                                <li><a href="#"><i class="fa fa-crosshairs"></i>Hi <%= user.user_name %></a></li>
-                                <% } %>
-                                <li><a href="/"><i class="fa fa-crosshairs"></i>Home</a></li>
-                                <li><a href="/users/settings"><i class="fa fa-crosshairs"></i>Settings</a></li>
-                                <li><a href="/dashboard"><i class="fa fa-shopping-cart"></i>Dashboard</a></li>
-                                <% if(user) { %>
-                                    <li><a href="/auth/logout"><i class="fa fa-lock"></i>Logout</a></li>
-                                <% }else{ %>
-                                    <li><a href="/auth/login"><i class="fa fa-lock"></i>Login</a></li>
-                                <% } %>
-                            </ul>
-                        </div>
-
-                    </div>
 				</div>
 			</div>
-
 		</div><!--/header-middle-->
 
 		<!--/header-bottom can be inserted later "For front end reference"-->
 	</header>
-    <section id="form" style="margin-top:0px;"><!--form-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="login-form"><!--login form-->
-                        <h2>Settings</h2>
-                        <form action="/auth/login" method="post">
-                            <input type="text" placeholder="Name" name="username" />
-                            <input type="password" placeholder="Password" name="password" />
-                            <span>
-                                <input type="checkbox" class="checkbox">
-                                Keep me signed in
-                            </span>
-                            <button type="submit" class="btn btn-default">Login</button>
-                        </form>
-                    </div><!--/login form-->
-                </div>
 
+  <body class="bg-light">
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-8 order-md-1">
+          <h3 class="mb-3">User Details</h3>
+          <form class="needs-validation" novalidate>
+
+
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
 
             </div>
-        </div>
-
-    </section><!--/form-->
 
 
+              <div class="mb-3">
+                <label for="zip">Pnone number</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+              </div>
+
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+
+            </div>
+
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" id="country" required>
+                  <option value="">Choose...</option>
+                  <option>India</option>
+				  <option>UK  </option>
+
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <select class="custom-select d-block w-100" id="state" required>
+                  <option value="">Choose...</option>
+                  <option>Delhi</option>
+                </select>
+				<div class="col-md-3 mb-3">
+                <label for="zip">Date of birth</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+              </div>
+
+              </div>
+            </div>
+           <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 E-valuate</p>
 
 
-</body>
+      </footer>
+
+
+
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
 </html>
