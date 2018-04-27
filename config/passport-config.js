@@ -2,13 +2,13 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('../config/database.js');
+const bcrypt = require('bcryptjs');
 
-
-passport.serializeUser(function(user,done){
+passport.serializeUser(function(user, done) {
     done(null, user.user_id);
 });
 
-passport.deserializeUser(function(id, done){
+passport.deserializeUser(function(id, done) {
     var searchuserquery = 'select * from user where user_id= ?';
     db.query(searchuserquery, [id], function(err, result, fields) {
         if (err) throw err;
@@ -48,3 +48,24 @@ passport.use(new GoogleStrategy({
         })
     }
 ));
+
+passport.use(new LocalStrategy(
+    function(username, password, cb) {
+        var searchuserquery = 'select * from user where user_name=?';
+        db.query(searchuserquery, [username], function(err, result, fields) {
+            if (err) {
+                return cb(err);
+            }
+            var user = result[0];
+            if (!user) {
+                return cb(null, false);
+            }
+            bcrypt.compare(password, user.password, function(err, out) {
+                if (out){
+                    return cb(null, user);
+                }else{
+                    return cb(null, false);
+                }
+            });
+        });
+    }));
