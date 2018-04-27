@@ -40,14 +40,17 @@ router.get('/pid/:pid',function (req,res) {
     });
 });
 
+/* POST: bid on an active auction */
 router.post('/bid',authCheck,function (req,res) {
     var userid = parseInt(req.user.user_id);
     var bid_amt = parseInt(req.body.bid);
     var active_auctions_id = parseInt(req.body.auctionid);
     var sqlquery = "insert into bid values(null, ?,?,?,null)";
     if (bid_amt < MINIMUM_AMOUNT){
+        //check if amount less than the Minimum
         res.send('bid amount is less than Minimum');
     }else{
+        //add row to bid table
         db.query(sqlquery,[bid_amt, userid, active_auctions_id],function(err,result,fields){
             res.json(result);
         });
