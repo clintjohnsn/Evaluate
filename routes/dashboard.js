@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/database.js');
+const cel = require('connect-ensure-login');
 
-router.get('/',function(req,res){
+router.get('/',cel.ensureLoggedIn('/auth/login'),function(req,res){
     // console.log(req.user.user_id);
     var userid = req.user.user_id;
     res.render('cart', {user:req.user})
@@ -11,7 +12,7 @@ router.get('/',function(req,res){
 
 
 //active auctions
-router.get('/active', function(req, res){
+router.get('/active',cel.ensureLoggedIn('/auth/login'), function(req, res){
     //active ongoing auctions
     var userid = req.user.user_id;
     var sqlQ1 = 'select active_auctions_id, end_time, prod_id, prod_name, bid_amt from active_ongoing where user_id=?';
@@ -26,7 +27,7 @@ router.get('/active', function(req, res){
 })
 
 //paid auctions
-router.get('/paid', function(req,res){
+router.get('/paid',cel.ensureLoggedIn('/auth/login'), function(req,res){
     var userid = req.user.user_id;
     //won and already paid auctions
     var sqlQ2 = 'select finished_auctions_id, sold_at_price, timestamp, prod_id, prod_name, status from won where user_id=? and status=1';
@@ -39,7 +40,7 @@ router.get('/paid', function(req,res){
 
 
 //not yet paid auctions
-router.get('/notpaid', function(req, res){
+router.get('/notpaid',cel.ensureLoggedIn('/auth/login'), function(req, res){
     var userid = req.user.user_id;
     //won and yet to pay auctions
     var sqlQ3 = 'select finished_auctions_id, timestamp, prod_id, prod_name, status from won where user_id=? and status=0';
