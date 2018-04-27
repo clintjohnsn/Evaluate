@@ -10,6 +10,6 @@
 ./ubuntu@ec2-13-127-252-104.ap-south-1.compute.amazonaws.com
 .Rhistory
 ./wat
-
+.env.save
 #packages
 #./packages.json

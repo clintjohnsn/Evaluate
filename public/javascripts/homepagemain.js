@@ -80,7 +80,7 @@ $(function() {
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src=${response[i].image} alt="" />
+                                    <img src=${response[i].image} alt="" height="300" width="240"/>
                                     <h2 id = ${response[i].active_auctions_id} >${response[i].prod_name}</h2>
                                     <p> Bid Now! </p>
                                 </div>

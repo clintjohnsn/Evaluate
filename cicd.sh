@@ -31,6 +31,9 @@ if [ "$CHECK" = "lag" ]; then
     echo "check was assigned to lag"
     echo "need pulling"
     git pull
+    echo "******" >> ~/cicd.log
+    echo "Pulled new code" >> ~/cicd.log
+    date >> ~/cicd.log 
     killall node
     npm install
     npm start
@@ -44,6 +47,9 @@ if [ "$CHECK" = "up-to-date" ]; then
     else
         echo "Server had Stopped"
         echo "Now restarting the server"
+        echo "******" >> ~/cicd.log
+        echo "Restarting crashed server, no new pulls" >> ~/cicd.log
+        date >> ~/cicd.log
         npm start
     fi
 fi
