@@ -67,9 +67,8 @@
 					<thead>
 						<tr class="cart_menu">
 							<td class="Status">Status</td>
+							<td class="description">Name</td>
 							<td class="Validity">End time</td>
-							<td class="image">Auction</td>
-							<td class="description">Status</td>
 							<td class="price">Place a Bid</td>
 							<!-- the bid feild and button comes here -->
 							<td></td>
@@ -80,16 +79,14 @@
 							<td class="cart_Status">
 								<p>Active</p>
 							</td>
-							
-							<td class="cart_Validity">
-								<p>Soon</p>
-							</td>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a> <!-- the item comes here-->
-							</td>
 							<td class="cart_description">
 								<p> Item name</p> <!-- PLace holder for time to end-->
 							</td>
+							<td class="cart_Validity">
+								<p>Soon</p>
+							</td>
+							
+							
 							<td class="cart_price">
 								<div class="cart_price_button">
 									<input class="cart_price_input" type="text" name="Bid" autocomplete="off" size="6">
@@ -98,48 +95,8 @@
 							</td>
 						</tr>
 
-						<tr>
-							<td class="cart_Status">
-								<p>Active</p>
-							</td>
-							
-							<td class="cart_Validity">
-								<p>Soon</p>
-							</td>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a> <!-- the item comes here-->
-							</td>
-							<td class="cart_description">
-								<p> Item name</p> <!-- PLace holder for time to end-->
-							</td>
-							<td class="cart_price">
-								<div class="cart_price_button">
-									<input class="cart_price_input" type="text" name="Bid" autocomplete="off" size="6">
-									
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_Status">
-								<p>Active</p>
-							</td>
-							
-							<td class="cart_Validity">
-								<p>Soon</p>
-							</td>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a> <!-- the item comes here-->
-							</td>
-							<td class="cart_description">
-								<p> Item name</p> <!-- PLace holder for time to end-->
-							</td>
-							<td class="cart_price">
-								<div class="cart_price_button">
-									<input class="cart_price_input" type="text" name="Bid" autocomplete="off" size="6">
-									
-								</div>
-							</td>
-						</tr>
+						
+						
 					</tbody>
 				</table>
 			</div>
@@ -150,7 +107,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li class="active">My Wins</li>
+				  <li class="active">My Unpaid Wins</li>
 				</ol>
 			</div>
 			<div class="table-responsive cart_info">
@@ -158,10 +115,55 @@
 					<thead>
 						<tr class="cart_menu">
 							<td class="Status">Status</td>
+							<td class="description">Name</td>
+							<td class="Validity">Pay By</td>
+							
+							<td class="price">My Bid
+								</td>
+							
+							<!-- the bid feild and button comes here -->
+							<td>  </td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="cart_Status">
+								<p>Ended and Won</p>
+							</td>
+							</td>
+							
+							<td class="cart_description">
+								<p> Item name</p> <!-- PLace holder for time to end-->
+							</td>
+							<td class="cart_Validity">
+								<p>Ended</p>
+							
+							<td class="price">My Bid
+								<a href=""><button type="submit" class="btn btn-default">Pay</button>
+							</td>
+						</tr>	
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li class="active">My Terminated Auctions</li>
+				</ol>
+			</div>
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="Status">Status</td>
+							<td class="description">Name</td>
 							<td class="Validity">End time</td>
-							<td class="image">Auction</td>
-							<td class="description">Status</td>
-							<td class="price">Place a Bid</td>
+							<td class="price">My Bid</td>
 							<!-- the bid feild and button comes here -->
 							<td></td>
 						</tr>
@@ -169,49 +171,22 @@
 					<tbody>
 						<tr>
 							<td class="cart_Status">
-								<p>Paid/Unpaid</p>  <!-- place holder  -->
-							</td>
-							
-							<td class="cart_Validity">
-								<p>Terminated Auction</p>
-							</td>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a> <!-- the item comes here-->
+								<p>Terminated</p>
 							</td>
 							<td class="cart_description">
 								<p> Item name</p> <!-- PLace holder for time to end-->
 							</td>
-							<td class="cart_price">
-								<div class="cart_price_button">
-									<p>My Placed Bid</p> <!-- PLace holder for time to end-->
-									<input class="cart_price_input" type="text" name="Bid" autocomplete="off" size="6">
-									
-								</div>
+							<td class="cart_Validity">
+								<p>Ended</p>
+							</td>
+							
+							
+							<td class="price">
+								<p>Won bid with  $</p>
 							</td>
 						</tr>
 
-						<tr>
-							<td class="cart_Status">
-								<p>Paid/Unpaid</p>  <!-- place holder  -->
-							</td>
-							
-							<td class="cart_Validity">
-								<p>Terminated Auction</p>
-							</td>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a> <!-- the item comes here-->
-							</td>
-							<td class="cart_description">
-								<p> Item name</p> <!-- PLace holder for time to end-->
-							</td>
-							<td class="cart_price">
-								<div class="cart_price_button">
-									<p>My Placed Bid</p> <!-- PLace holder for time to end-->
-									<input class="cart_price_input" type="text" name="Bid" autocomplete="off" size="6">
-									
-								</div>
-							</td>
-						</tr>
+						
 						
 					</tbody>
 				</table>
