@@ -43,11 +43,34 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="/"><img src="/images/home/logo.png" alt="" width="200" height="150" /></a>
+							<a href="/"><img src="/images/home/logo.png" alt="" width="240" height="60" /></a>
 						</div>
 
 					</div>
 					<!--hi "buyer name" comes here-->
+                    <div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<div class="col-sm-3">
+						<!-- <div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div> -->
+					               </div>
+							<ul class="nav navbar-nav">
+                                <% if (user) { %>
+                                <li><a href="#"><i class="fa fa-crosshairs"></i>Hi <%= user.user_name %></a></li>
+                                <% } %>
+								<li><a href="/"><i class="fa fa-crosshairs"></i>Home</a></li>
+								<li><a href="/users/settings"><i class="fa fa-crosshairs"></i>Settings</a></li>
+								<li><a href="/dashboard"><i class="fa fa-shopping-cart"></i>Dashboard</a></li>
+                                <% if(user) { %>
+                                    <li><a href="/auth/logout"><i class="fa fa-lock"></i>Logout</a></li>
+                                <% }else{ %>
+                                    <li><a href="/auth/login"><i class="fa fa-lock"></i>Login</a></li>
+                                <% } %>
+							</ul>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
