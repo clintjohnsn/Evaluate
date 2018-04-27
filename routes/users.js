@@ -16,16 +16,22 @@ router.get('/settings',cel.ensureLoggedIn('/auth/login'), function(req, res, nex
 });
 
 /* POST: UPDATE THE USER SETTINGS */
-router.post('/settings/update', function(req, res, next) {
-    if (!req.user) {
-        res.send('you are not logged in');
-    } else {
+router.post('/settings/update', cel.ensureLoggedIn('/auth/login'), function(req, res, next) {
+
         // phone_no, zip, city,state,address,dob
         sqlquery = "update user set phone_no=?, zip=?, city=?, state=?, address=?, dob=? where user_id=?";
         db.query(sqlquery, [req.body.phoneno, req.body.zip, req.body.city, req.body.state, req.body.address, req.body.dob, req.user.user_id], function(err, result, fields) {
             res.json(result);
         });
-    }
+
+});
+
+/* GET request to get all user details */
+router.get('/getdetails', cel.ensureLoggedIn('auth/login'),function (req, res, next) {
+    sqlquery = "select * from user where user_id=?";
+    db.query(sqlquery,[req.user.user_id], function(err,result,fields){
+        res.json(result);
+    });
 });
 
 module.exports = router;
