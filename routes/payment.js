@@ -16,9 +16,10 @@ paypal.configure({
 // router.set('view engine', 'ejs');
 
 router.get('/', function(req, res){
-    res.render('payment');
+    res.render('payment',{user:req.user});
     console.log(req);
 })
+
 
 router.post('/pay', function(req, res){
     const create_payment_json = {

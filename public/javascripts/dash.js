@@ -105,7 +105,7 @@ $(function(){
                     <p>${time}</p>
 
                 <td class="price">
-                    <a href="/payment"><button type="submit" class="btn btn-default">Pay</button>
+                    <a href="/payment?prodname=${productName}"><button type="submit" class="btn btn-default">Pay</button>
                 </td>
             </tr>`;
             $('#evillol').append(row);

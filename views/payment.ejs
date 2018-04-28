@@ -1,16 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PayPal Node App</title>
+  <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Your Auctions | PayPal</title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/price-range.css" rel="stylesheet">
+    <link href="stylesheets/animate.css" rel="stylesheet">
+	<link href="stylesheets/main.css" rel="stylesheet">
+	<link href="stylesheets/responsive.css" rel="stylesheet">
+
+
 </head>
+
 <body>
-  <h1>Boston Red Sox Hat</h1> <!--we need to get data of item  -->
-   <h2>Buy For $25</h2> <!--price -->
-  <form action="/pay" method="post">
-    <input type="submit" value="Buy">
-  </form>
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><p> Hi </p></a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div><!--/header_top-->
+
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="images/home/logo.png" alt="" width="240" height="60" /></a>
+						</div>
+
+					</div>
+					<!--hi "buyer name" comes here-->
+
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <div class="col-sm-3">
+                        <!-- <div class="search_box pull-right">
+                            <input type="text" placeholder="Search"/>
+                        </div> -->
+                                   </div>
+                            <ul class="nav navbar-nav">
+                                <% if (user) { %>
+                                <li><a href="#"><i class="fa fa-crosshairs"></i>Hi <%= user.user_name %></a></li>
+                                <% } %>
+                                <li><a href="/"><i class="fa fa-crosshairs"></i>Home</a></li>
+                                <li><a href="/users/settings"><i class="fa fa-crosshairs"></i>Settings</a></li>
+                                <li><a href="/dashboard"><i class="fa fa-shopping-cart"></i>Dashboard</a></li>
+                                <% if(user) { %>
+                                    <li><a href="/auth/logout"><i class="fa fa-lock"></i>Logout</a></li>
+                                <% }else{ %>
+                                    <li><a href="/auth/login"><i class="fa fa-lock"></i>Login</a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+
+                    </div>
+
+				</div>
+			</div>
+		</div><!--/header-middle-->
+
+		<!--/header-bottom can be inserted later "For front end reference"-->
+	</header>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+
+						<h1>Boston Red Sox Hat</h1>
+						<form action="#">
+
+							<h2 style=colour:"purple"> Buy for XX INR</h2>
+							<button type="submit" class="btn btn-default">Pay</button>
+						</form>
+
+					</div><!--/login form-->
+				</div>
+				</div>
+			</div>
+		</div>
+
 </body>
 </html>
