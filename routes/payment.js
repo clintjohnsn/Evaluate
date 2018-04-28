@@ -16,7 +16,7 @@ paypal.configure({
 // router.set('view engine', 'ejs');
 
 router.get('/', function(req, res){
-    res.render('payment',{user:req.user});
+    res.render('payment',{user:req.user, lol:req.query.prodname});
     console.log(req);
 })
 
@@ -28,13 +28,13 @@ router.post('/pay', function(req, res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/success",
-            "cancel_url": "http://localhost:3000/cancel"
+            "return_url": "http://localhost:3000/payment/success",
+            "cancel_url": "http://localhost:3000/payment/cancel"
         },
         "transactions": [{
             "item_list": {
                 "items": [{
-                    "name": "Red Sox Hat", //add variables
+                    "name": "Red sox Hat", //add variables
                     "sku": "001",
                     "price": "25.00",
                     "currency": "INR",
