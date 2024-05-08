@@ -2,6 +2,11 @@
 SPM Project
 A website that lets startups evaluate their product market value by auctioning off their first few products to enthusiasts
 
+# Front End
+1. Vue
+2. Bootstrap
+
+
 ## Dependencies
 1. Node.js
 2. MySQL
